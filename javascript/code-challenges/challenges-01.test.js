@@ -1,28 +1,3 @@
-const createList = (availableItems) => {
-  // Solution code here...
-  let av = [];
-  availableItems.forEach((item) => {
-    if (item.available) {
-      av.push(item.name);
-    }
-  });
-  return av;
-};
-
-const addValues = (arr, value) => {
-  arr.push(value);
-};
-
-const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
-  for (let i = 0; i < times; i++) {
-    callback(arr, num);
-  }
-  return arr;
-};
-
-("use strict");
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
