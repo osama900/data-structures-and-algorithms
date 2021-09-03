@@ -7,11 +7,13 @@ Write a function named `addOne` that takes an array of numbers, and returns a ne
 
 Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
-let array = [1, 2, 3];
+let newArr = [];
 const addOne = (arr) => {
-  console.log(arr + 1);
+  arr.forEach((value) => {
+    newArr.push(value + 1);
+  });
+  return newArr;
 };
-array.forEach(addOne);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -20,11 +22,14 @@ Write a function named `addExclamation` that takes an array of strings, and retu
 
 Use `forEach` to loop over the input array. Modify each string, and add the updated value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
-let arrayLetter = ["a", "b", "c"];
+let newArr2 = [];
+
 const addExclamation = (arr) => {
-  return arr + "!";
+  arr.forEach((item) => {
+    newArr2.push(item + "!");
+  });
+  return newArr2;
 };
-arrayLetter.forEach(addExclamation);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -33,12 +38,13 @@ Write a function named `allUpperCase` that takes an array of strings, and return
 
 Use `forEach` to loop over the input array. The modified strings should each be added into a local array. Return that local array.
 ------------------------------------------------------------------------------------------------ */
-let arrayLowerLetter = ["aaa", "baa", "aac"];
-
-const allUpperCase = (value) => {
-  return value.toUpperCase();
+let newArr3 = [];
+const allUpperCase = (arr) => {
+  arr.forEach((value) => {
+    newArr3.push(value.toUpperCase());
+  });
+  return newArr3;
 };
-arrayLowerLetter.forEach(allUpperCase);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -49,15 +55,16 @@ Then, write a function named `speaker` that takes in an array of strings and a c
 
 Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. 
 ------------------------------------------------------------------------------------------------ */
-
+let newArr4 = [];
 const greeting = (word) => {
-  // Solution code here...
-  return word.toUpperCase() + "!";
+  word.forEach((value) => {
+    newArr3.push(value.toUpperCase());
+  });
+  return newArr4;
 };
 
 const speaker = (words, callback) => {
-  // Solution code here...
-  return callback(callback);
+  return callback(words);
 };
 
 /* ------------------------------------------------------------------------------------------------
