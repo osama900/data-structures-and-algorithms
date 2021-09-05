@@ -22,8 +22,8 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  upper(arr, callback);
-  lower(arr, callback);
+  let newArr = arr.map((item) => callback(item));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
