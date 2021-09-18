@@ -11,14 +11,7 @@ Write a function named screenForNames that takes in an array of strings and uses
 ------------------------------------------------------------------------------------------------ */
 
 const screenForNames = (arr) => {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    let validator = /(Mr. |Dr. |Ms. )/g;
-    if (validator.test(arr)) {
-      newArr.push(arr[i]);
-    }
-  }
-  return newArr;
+  return arr.filter((value) => /^((Mr||Mrs||Ms||Dr).\s)[A-Z]/.test(value));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,8 +24,8 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   let newArr = [];
-  arr.forEach((element) => {
-    newArr.push(element.toUpperCase());
+  arr.map((item) => {
+    return newArr.push(item.charAt(0).toUpperCase() + item.slice(1));
   });
   return newArr;
 };
@@ -111,7 +104,18 @@ let starWarsData = [
 ];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  let str = "";
+
+  arr.map((value) => {
+    if (parseInt(value.mass) > parseInt(arr[0].mass)) {
+      if (str) {
+        str = str + " - ";
+      }
+      str = str + value.name;
+      return str;
+    }
+  });
+  return str;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,9 +134,16 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
-  arr.sort(function (a, b) {
-    return parseFloat(a.price) - parseFloat(b.price);
+  arr.sort((a, b) => {
+    if (a[property] > b[property]) {
+      return 1;
+    } else if (a[property] < b[property]) {
+      return -1;
+    } else {
+      return 0;
+    }
   });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
